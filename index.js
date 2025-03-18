@@ -10,13 +10,15 @@ console.log( newfoodword = food.slice(0,4) + insert + food.slice(4));
 //counting
 
 let story = "The quick brown fox jumps over the lazy dog";
-let word = 'the';
-let count = (story.match(new RegExp(word, "g")) || []).length;
-console.log(count);
-
-let character = 'brown';
-let countFor = (story.match(new RegExp(character, "g")) || []).length;
-console.log(countFor);
+const character = story.toLowerCase().split(" ");
+let countThe = 0;
+let countBrown = 0;
+for (let word of character) {
+    if (word === "the") countThe++;
+    if (word === "brown") countBrown++;
+}
+console.log(`"the" appears: ${countThe} times`);
+console.log(`"brown" appears: ${countBrown} times`);
 
 //finding the words in a string
 
@@ -38,7 +40,10 @@ let str3= 'UndERneath';
 console.log(str2.toLowerCase());
 console.log(str3.toLowerCase());
 //Title case
-let str4="A wonderful world".replace(/\w\S*/g, (text) => text.charAt(0).toUpperCase() + text.substr(1).toLowerCase());
+let inputText = "a wonderful world";
+const wordsList = inputText.split(' ');
+const outputText = wordsList.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+console.log(outputText);
 
 
 
